@@ -29,5 +29,13 @@
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.4"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaianSilva/back-end-avf-kaian.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KaianSilva/back-end-avf-kaian/issues"
+  },
+  "homepage": "https://github.com/KaianSilva/back-end-avf-kaian#readme",
   "description": ""
 }
