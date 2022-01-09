@@ -2,7 +2,6 @@
   "name": "backend_avf_kaian",
   "version": "1.0.0",
   "main": "index.js",
-  
   "scripts": {
     "build": "npm run typeorm migration:run && npx tsc",
     "start": "node ./dist/server.js",
