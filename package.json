@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "build": "npm run typeorm migration:run && npx tsc",
+    "start": "node ./dist/server.js",
     "dev": "ts-node-dev src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
@@ -26,5 +28,13 @@
   },
   "keywords": [],
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaianSilva/back-end-avf-kaian.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KaianSilva/back-end-avf-kaian/issues"
+  },
+  "homepage": "https://github.com/KaianSilva/back-end-avf-kaian#readme",
   "description": ""
 }
