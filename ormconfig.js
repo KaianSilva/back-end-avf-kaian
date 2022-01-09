@@ -1,9 +1,9 @@
 require('dotenv').config();
 
-module.exports  = {
+module.exports = {
     type: 'postgres',
-     url: process.env.DATABASE_URL,
-    /* host: process.env.DB_HOST,
+    url: process.env.DATABASE_URL,
+/*  host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
@@ -11,10 +11,10 @@ module.exports  = {
     synchronize: false,
     logging: false,
     entities: [
-        'src/core/data/database/entities/**/*'
+        'dist/core/data/database/entities/**/*'
     ],
     migrations : [
-        'src/core/data/database/migrations/**/*'
+        'dist/core/data/database/migrations/**/*'
     ],
     cli: {
         entitiesDir: 'src/core/data/database/entities',
@@ -24,8 +24,5 @@ module.exports  = {
         ssl: {
             rejectUnauthorized: false
         }
-    }  
+    }
 }
-
-
-
