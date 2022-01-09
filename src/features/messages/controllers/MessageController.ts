@@ -1,8 +1,38 @@
 import { Request, Response } from "express";
+import { Like } from "typeorm";
 import { User } from "../../../core/data/database/entities/User";
 import { Message } from "../../../core/data/database/entities/Message";
 
 export default class MessageController {
+
+
+	public async show(req: Request, res: Response) {
+		const { user_uid } = req.params;
+		const user = await User.find({/* { relations: ["messages"] },
+			where: { firstName: "Timber", lastName: "Saw" } } */
+			where: {
+				uid: user_uid,
+			},
+			relations: ["messages"],
+		});
+		/* const messages = await Message.find({ relations: ["users"] }); */ /* Message.findAndCount(user_uid); */
+
+		console.log(user_uid);
+		/* Message.find({
+			where: {
+				title: user_uid,
+			},
+			
+		})
+ */
+
+
+		console.log(user);
+
+		return res.json(user);
+	}
+
+
 	public async store(req: Request, res: Response) {
 		const { title, description, user_uid } = req.body;
 
@@ -11,9 +41,9 @@ export default class MessageController {
 		console.log(user);
 
 		if (user && user_uid != undefined) {
-			const message = await new Message(title, description, user).save();
+			const message = await new Message(title, description, user.uid).save();
 			console.log(message);
-			return res.status(200).send("mensagem criada");
+			return res.status(200).json(message);
 		} else {
 			return res.status(404).send("Usuário não encontrado");
 		}
@@ -21,6 +51,7 @@ export default class MessageController {
 
 	public async index(req: Request, res: Response) {
 		const messages = await Message.find();
+		console.log(messages)
 		return res.json(messages);
 	}
 
