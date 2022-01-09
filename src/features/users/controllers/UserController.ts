@@ -11,7 +11,7 @@ export default class UserController {
 
 		console.log(user);
 
-		return res.status(200).send("usuário criado");
+		return res.status(200).json(user);
 	}
 
 	public async index(req: Request, res: Response) {
